@@ -15,7 +15,7 @@ def make_call(to_number: str, ngrok_base_url: str, scenario_id: str) -> str:
             to=to_number,
             from_=twilio_phone_number,
             url=f"{ngrok_base_url}/twilio_webhook?scenario_id={scenario_id}",
-            record=True, # Record the entire call
+            record=True,
             status_callback=f"{ngrok_base_url}/status_callback",
             status_callback_event=['completed']
         )
@@ -24,3 +24,19 @@ def make_call(to_number: str, ngrok_base_url: str, scenario_id: str) -> str:
     except Exception as e:
         print(f"Error making call: {e}")
         return None
+
+
+def create_twiml_response(audio_url: str = None) -> str:
+
+    response = VoiceResponse()
+    if audio_url:
+        response.play(audio_url)
+    
+    # Record the user's response
+    response.record(
+        action="/twilio_webhook", 
+        method="POST",
+        maxLength=10, 
+        finishOnKey='#'
+    )
+    return str(response)
