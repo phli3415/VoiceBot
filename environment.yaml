@@ -1,0 +1,17 @@
+name: voicebot-challenge
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - python-dotenv
+  - fastapi
+  - uvicorn
+  - pip
+  - pip:
+    - openai
+    - langchain==0.3.25
+    - twilio
+    - gTTS
+    - elevenlabs
+    - python-multipart
