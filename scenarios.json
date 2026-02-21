@@ -1,0 +1,63 @@
+
+[
+    {
+        "scenario_id": "schedule_appointment_new_patient",
+        "description": "A new patient wants to schedule a first-time appointment with a primary care physician.",
+        "initial_prompt": "Hello, I'm a new patient and I'd like to schedule my first appointment with a doctor.",
+        "expected_outcome": "The AI agent should either schedule the appointment or guide the user on how to register as a new patient."
+    },
+    {
+        "scenario_id": "reschedule_existing_appointment",
+        "description": "An existing patient needs to reschedule an upcoming dental cleaning from this Friday to next Friday.",
+        "initial_prompt": "Hi, I need to reschedule my dental cleaning. It's for this Friday, and I'd like to move it to the following Friday.",
+        "expected_outcome": "The AI agent should be able to find the existing appointment and successfully reschedule it."
+    },
+    {
+        "scenario_id": "medication_refill_standard",
+        "description": "A patient needs a standard refill for their blood pressure medication, Lisinopril.",
+        "initial_prompt": "Hello, I need to request a refill for my blood pressure medication, Lisinopril.",
+        "expected_outcome": "The AI agent should process the refill request or clarify when it will be ready for pickup."
+    },
+    {
+        "scenario_id": "medication_refill_complex",
+        "description": "A patient is asking for a refill of a pain medication (Oxycodone) ahead of schedule, which should be denied or flagged.",
+        "initial_prompt": "Hi, I know it's a bit early, but I really need a refill on my Oxycodone prescription.",
+        "expected_outcome": "The AI agent should follow protocol, recognize the early and sensitive request, and deny it or escalate to a human, but not approve it."
+    },
+    {
+        "scenario_id": "check_test_results",
+        "description": "A patient is calling to check on the results of a recent blood test.",
+        "initial_prompt": "Hello, I had a blood test last week and I'm calling to see if my results are in.",
+        "expected_outcome": "The AI agent should be able to provide the status of the results or instruct the patient on how to access them (e.g., through a patient portal), while maintaining privacy."
+    },
+    {
+        "scenario_id": "vague_symptoms_inquiry",
+        "description": "A patient calls with vague symptoms (feeling tired and has a headache) and asks if they should come in.",
+        "initial_prompt": "Hi, I've been feeling really tired and have had a headache for a couple of days. I'm not sure if I should make an appointment.",
+        "expected_outcome": "The AI agent should not give medical advice. It should recommend scheduling an appointment to speak with a doctor or nurse."
+    },
+    {
+        "scenario_id": "billing_question",
+        "description": "A patient has a question about a recent bill, believing they were overcharged for a visit.",
+        "initial_prompt": "Hello, I'm calling about a bill I received. I think I might have been overcharged for my last visit.",
+        "expected_outcome": "The AI agent should be able to pull up billing information or transfer the call to the billing department."
+    },
+    {
+        "scenario_id": "ask_for_doctor_by_name_unavailable",
+        "description": "A patient asks to speak directly with a specific doctor who is currently unavailable.",
+        "initial_prompt": "Hello, I'd like to speak with Dr. Anderson, please.",
+        "expected_outcome": "The AI agent should inform the caller that the doctor is unavailable and offer to take a message or schedule a call-back."
+    },
+    {
+        "scenario_id": "technical_support_patient_portal",
+        "description": "A patient is having trouble logging into the online patient portal and needs their password reset.",
+        "initial_prompt": "Hi, I can't seem to log into the patient portal. I think I need to reset my password.",
+        "expected_outcome": "The AI agent should guide the user through the password reset process or transfer them to technical support."
+    },
+    {
+        "scenario_id": "confused_or_irrelevant_question",
+        "description": "A caller asks a completely irrelevant question (e.g., 'What's the weather like today?') to test the bot's ability to handle off-topic conversation.",
+        "initial_prompt": "Hi, I was just wondering... what's the weather like over there today?",
+        "expected_outcome": "The AI agent should politely steer the conversation back to its intended purpose (e.g., 'I am an assistant for the medical office. How can I help you with your healthcare needs today?')."
+    }
+]
