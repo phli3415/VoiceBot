@@ -1,13 +1,13 @@
 import os
 from openai import OpenAI
 from gtts import gTTS
-from elevenlabs import generate, set_api_key
+from elevenlabs.client import ElevenLabs
+from elevenlabs import save
 
 openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-elevenlabs_api_key = os.environ.get("ELEVENLABS_API_KEY")
-if elevenlabs_api_key:
-    set_api_key(elevenlabs_api_key)
+eleven_client = ElevenLabs()
+has_elevenlabs_key = os.environ.get("ELEVENLABS_API_KEY") is not None
 
 def transcribe_audio(audio_file_path: str) -> str:
 
@@ -22,17 +22,17 @@ def transcribe_audio(audio_file_path: str) -> str:
         print(f"Error during transcription: {e}")
         return ""
 
+
 def text_to_speech(text: str, output_path: str = "response.mp3", use_elevenlabs: bool = True) -> str:
 
     try:
-        if use_elevenlabs and elevenlabs_api_key:
-            audio = generate(
+        if use_elevenlabs and has_elevenlabs_key:
+            audio = eleven_client.generate(
                 text=text,
                 voice="Bella",
                 model="eleven_monolingual_v1"
             )
-            with open(output_path, 'wb') as f:
-                f.write(audio)
+            save(audio, output_path)
         else:
             tts = gTTS(text=text, lang='en')
             tts.save(output_path)
