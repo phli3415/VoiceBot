@@ -2,17 +2,23 @@ import os
 import json
 import uvicorn
 import requests
+
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI, Form, Request, Response
 from fastapi.staticfiles import StaticFiles
-from dotenv import load_dotenv
 from twilio.twiml.voice_response import VoiceResponse
-from threading import Timer
 
 import agent
 import twilio_handler
 import speech_processing
 
-load_dotenv()
+os.makedirs("reports/call_transcripts", exist_ok=True)
+os.makedirs("static", exist_ok=True)
+
+with open("reports/bug_report.md", "w") as f:
+    f.write("# AI Agent Bug and Quality Report\n")
 
 app = FastAPI()
 
@@ -25,6 +31,7 @@ global_state = {
 }
 
 def download_file_from_url(url: str, local_filename: str):
+    """Downloads a file from a URL, saving it locally."""
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
         with open(local_filename, 'wb') as f:
@@ -34,7 +41,6 @@ def download_file_from_url(url: str, local_filename: str):
 
 @app.post("/twilio_webhook")
 async def handle_twilio_webhook(request: Request, scenario_id: str = None, RecordingUrl: str = Form(None)):
-
     if scenario_id and not RecordingUrl:
         print(f"Starting conversation for scenario: {scenario_id}")
         scenarios = json.load(open('scenarios.json'))
@@ -78,7 +84,6 @@ async def handle_twilio_webhook(request: Request, scenario_id: str = None, Recor
 
 @app.post("/status_callback")
 async def handle_status_callback(CallSid: str = Form(...), CallStatus: str = Form(...)):
-
     if CallStatus == 'completed':
         print(f"Call {CallSid} completed. Analyzing conversation.")
         scenario = global_state["current_scenario"]
@@ -89,7 +94,6 @@ async def handle_status_callback(CallSid: str = Form(...), CallStatus: str = For
             return Response(status_code=200)
 
         transcript_path = f"reports/call_transcripts/call_{scenario['scenario_id']}.txt"
-        os.makedirs(os.path.dirname(transcript_path), exist_ok=True)
         with open(transcript_path, "w") as f:
             f.write(history)
             
@@ -104,23 +108,17 @@ async def handle_status_callback(CallSid: str = Form(...), CallStatus: str = For
 
 
 def main():
-
-    os.makedirs("reports/call_transcripts", exist_ok=True)
-    os.makedirs("static", exist_ok=True) # Ensure static dir exists
-    
-    with open("reports/bug_report.md", "w") as f:
-        f.write("# AI Agent Bug and Quality Report\n")
-
     print("Starting FastAPI server. Use ngrok to expose this port to the internet.")
     print("Example ngrok command: ngrok http 8000")
     
+    from threading import Timer
     def run_call():
         print("Getting ready to make the first call...")
-        ngrok_url = "https://<your-ngrok-subdomain>.ngrok.io"  # <--- IMPORTANT: Update this
+        ngrok_url = "https://nonextended-emogene-diaphragmatically.ngrok-free.dev"
         scenarios = json.load(open('scenarios.json'))
         first_scenario = scenarios[0]
         twilio_handler.make_call(
-            to_number="805-439-8008", # The number to test
+            to_number="805-439-8008",
             ngrok_base_url=ngrok_url, 
             scenario_id=first_scenario['scenario_id']
         )
