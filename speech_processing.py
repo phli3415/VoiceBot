@@ -22,15 +22,16 @@ def transcribe_audio(audio_file_path: str) -> str:
         print(f"Error during transcription: {e}")
         return ""
 
-
 def text_to_speech(text: str, output_path: str = "response.mp3", use_elevenlabs: bool = True) -> str:
-
+    
     try:
         if use_elevenlabs and has_elevenlabs_key:
-            audio = eleven_client.generate(
-                text=text,
-                voice="Bella",
-                model="eleven_monolingual_v1"
+            print("Attempting TTS conversion with 'text_to_speech.convert' method...")
+            audio = eleven_client.text_to_speech.convert(
+                text = text,
+                voice_id = "EXAVITQu4vr4xnSDxMaL",
+                model_id = "eleven_multilingual_v2",
+                output_format = "mp3_44100_128"
             )
             save(audio, output_path)
         else:
