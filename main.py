@@ -1,5 +1,6 @@
 import os
 import json
+import time
 import uvicorn
 import requests
 
@@ -25,7 +26,11 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+scenarios = json.load(open('scenarios.json'))
+ngrok_url = "https://nonextended-emogene-diaphragmatically.ngrok-free.dev"
+
 global_state = {
+    "current_scenario_index": -1, 
     "current_scenario": None,
     "conversation_agent": None,
     "conversation_history": ""
@@ -33,6 +38,7 @@ global_state = {
 
 
 def download_file_from_url(url: str, local_filename: str):
+    """Downloads a file from a URL, saving it locally with authentication."""
     account_sid = os.environ.get("TWILIO_ACCOUNT_SID")
     auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
 
@@ -46,43 +52,49 @@ def download_file_from_url(url: str, local_filename: str):
 
 @app.post("/twilio_webhook")
 async def handle_twilio_webhook(request: Request, scenario_id: str = None, RecordingUrl: str = Form(None)):
+    response = VoiceResponse()
+
     if scenario_id and not RecordingUrl:
-        print(f"Starting conversation for scenario: {scenario_id}")
-        scenarios = json.load(open('scenarios.json'))
+        print(
+            f"\n---\n[SCENARIO {global_state['current_scenario_index'] + 1}/{len(scenarios)}] Starting conversation for scenario: {scenario_id}\n---")
         global_state["current_scenario"] = next((s for s in scenarios if s['scenario_id'] == scenario_id), None)
 
+        global_state["conversation_history"] = ""
         global_state["conversation_agent"] = agent.create_patient_agent(global_state["current_scenario"])
 
-        initial_response = global_state["current_scenario"]['initial_prompt']
-        global_state["conversation_history"] += f"Patient: {initial_response}\n"
+        initial_prompt = global_state["conversation_agent"].memory.chat_memory.messages[0].content
+        global_state["conversation_history"] += f"Patient: {initial_prompt}\n"
 
-        audio_path = speech_processing.text_to_speech(initial_response, "static/initial.mp3")
+        audio_path = speech_processing.text_to_speech(initial_prompt, "static/initial.mp3")
         base_url = str(request.base_url)
         audio_url = f"{base_url}{audio_path}"
-        twiml = twilio_handler.create_twiml_response(audio_url=audio_url)
-        return Response(content=twiml, media_type="application/xml")
+
+        response.play(audio_url)
+        response.record(action="/twilio_webhook", method="POST", finish_on_key="*")
+        response.hangup()
+
+        return Response(content=str(response), media_type="application/xml")
 
     elif RecordingUrl:
-        print(f"Received a recording: {RecordingUrl}")
-
         audio_path = "static/agent_response.wav"
         download_file_from_url(RecordingUrl, audio_path)
 
         transcribed_text = speech_processing.transcribe_audio(audio_path)
-        global_state["conversation_history"] += f"AI Assistant: {transcribed_text}\n"
-        print(f"AI Assistant said: {transcribed_text}")
+        if transcribed_text:
+            global_state["conversation_history"] += f"AI Assistant: {transcribed_text}\n"
+            print(f"AI Assistant said: {transcribed_text}")
 
-        patient_response = global_state["conversation_agent"].predict(input=transcribed_text)
-        global_state["conversation_history"] += f"Patient: {patient_response}\n"
-        print(f"Patient bot will say: {patient_response}")
+            patient_response = global_state["conversation_agent"].predict(input=transcribed_text)
+            global_state["conversation_history"] += f"Patient: {patient_response}\n"
+            print(f"Patient bot will say: {patient_response}")
 
-        response_audio_path = speech_processing.text_to_speech(patient_response, "static/response.mp3")
-        base_url = str(request.base_url)
-        audio_url = f"{base_url}{response_audio_path}"
-        twiml = twilio_handler.create_twiml_response(audio_url=audio_url)
-        return Response(content=twiml, media_type="application/xml")
+            response_audio_path = speech_processing.text_to_speech(patient_response, "static/response.mp3")
+            base_url = str(request.base_url)
+            audio_url = f"{base_url}{response_audio_path}"
 
-    response = VoiceResponse()
+            response.play(audio_url)
+            response.record(action="/twilio_webhook", method="POST", finish_on_key="*")
+
     response.hangup()
     return Response(content=str(response), media_type="application/xml")
 
@@ -91,45 +103,57 @@ async def handle_twilio_webhook(request: Request, scenario_id: str = None, Recor
 async def handle_status_callback(CallSid: str = Form(...), CallStatus: str = Form(...)):
     if CallStatus == 'completed':
         print(f"Call {CallSid} completed. Analyzing conversation.")
+
         scenario = global_state["current_scenario"]
         history = global_state["conversation_history"]
 
-        if not history:
-            print("No conversation was recorded. Skipping analysis.")
-            return Response(status_code=200)
+        if history and scenario:
+            transcript_path = f"reports/call_transcripts/call_{scenario['scenario_id']}.txt"
+            with open(transcript_path, "w") as f:
+                f.write(history)
 
-        transcript_path = f"reports/call_transcripts/call_{scenario['scenario_id']}.txt"
-        with open(transcript_path, "w") as f:
-            f.write(history)
+            analysis = agent.analyze_conversation(history, scenario)
+            bug_report_path = "reports/bug_report.md"
+            with open(bug_report_path, "a") as f:
+                f.write(f"\n---\n### Analysis for Scenario: {scenario['scenario_id']}\n\n")
+                f.write(analysis)
+                f.write("\n")
+            print(f"Analysis complete for scenario '{scenario['scenario_id']}'. Report updated.")
 
-        analysis = agent.analyze_conversation(history, scenario)
-        bug_report_path = "reports/bug_report.md"
-        with open(bug_report_path, "a") as f:
-            f.write(f"\n---\n### Analysis for Scenario: {scenario['scenario_id']}\n\n")
-            f.write(analysis)
-            f.write("\n")
-        print("Analysis complete and report updated.")
+        time.sleep(2)  
+        initiate_next_call_in_sequence()
+
     return Response(status_code=200)
 
 
-def main():
-    print("Starting FastAPI server. Use ngrok to expose this port to the internet.")
-    print("Example ngrok command: ngrok http 8000")
+def initiate_next_call_in_sequence():
+    global_state["current_scenario_index"] += 1
+    index = global_state["current_scenario_index"]
 
-    from threading import Timer
-    def run_call():
-        print("Getting ready to make the first call...")
-        ngrok_url = "https://nonextended-emogene-diaphragmatically.ngrok-free.dev"
-        scenarios = json.load(open('scenarios.json'))
-        first_scenario = scenarios[0]
+    if index < len(scenarios):
+        next_scenario = scenarios[index]
+        print(
+            f"\n>>> Preparing to initiate call for scenario {index + 1}/{len(scenarios)}: '{next_scenario['scenario_id']}'...")
 
         twilio_handler.make_call(
             to_number="805-439-8008", 
             ngrok_base_url=ngrok_url,
-            scenario_id=first_scenario['scenario_id']
+            scenario_id=next_scenario['scenario_id']
         )
+    else:
+        print("\n=========================================")
+        print("All test scenarios have been completed!")
+        print("=========================================")
 
-    Timer(2, run_call).start()
+
+def main():
+    print("Starting FastAPI server...")
+    print(f"Loaded {len(scenarios)} scenarios to test.")
+    print("The test sequence will begin shortly.")
+
+    # Kick off the first call after the server starts
+    from threading import Timer
+    Timer(3, initiate_next_call_in_sequence).start()
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
 

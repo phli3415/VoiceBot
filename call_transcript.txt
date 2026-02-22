@@ -1,0 +1,270 @@
+1.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A new patient wants to schedule a first-time appointment with a primary care physician.                                       
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hello, I'm a new patient and I'd like to schedule my first appointment with a doctor.                                                  
+    AI Assistant: part of pretty good AI. Am I speaking with John?                                                                                      
+    Patient: Yes, that's correct.                                                                                                                       
+    AI Assistant: Got it. Can you please tell me your date of birth?                                                                                    
+    Patient: April 15, 1989.                                                                                                                            
+    AI Assistant: The birthday doesn't match our records, but for demo purposes, I'll accept it. How can I help you today?                              
+    Patient: I need to schedule my first appointment with a primary care physician.                                                                     
+    AI Assistant: Got it. At Pivot Point Orthopedics, we offer new patient consultations for your first visit. Would you like to hear about available providers and time? Do you have a preferred day or time of day for your appointment?                                                                  
+    Patient: Yes, I'd prefer an appointment in the morning if possible, any day except Wednesday.                                                       
+    AI Assistant: Understood. Let me check morning availability for a new patient consultation with any provider on any day except Wednesday. One moment while I fetch the options. There are no morning appointments available for new patient consultations in the next week except Wednesday. Would you like to try a later date or a different month?                                                                                                       
+    Patient: Yes, could we look into the following week then? I really can't do Wednesdays but any other weekday morning would be great.                
+    AI Assistant: Got it. I'll check morning availability for the week after next, excluding Wednesdays. One moment while I look that up. The next available morning appointment is Thursday, March 5th at 9 a.m. with Dr. Adam Bricker. There are also openings at 9.45 and 10.30 that same morning. Would you like to book the 9 a.m. slot or would you prefer one of the others? Okay.                                                                       
+    Patient: The 9 a.m. slot works perfectly for me. Can we book that?                                                                                  
+    AI Assistant: Great choice. To confirm, you'd like to book a new patient consultation with Dr. Adam Bricker on Thursday, March 5th, at 9 a.m., is that correct?                                                                                                                                         
+    Patient: Yes, that's correct.                                                                                                                       
+    AI Assistant: Your appointment is set for Thursday, March 5th at 9 a.m. with Dr. Adam Bricker. Please bring a government-issued photo ID and your insurance card. Would you like a text reminder for this appointment?                                                                                  
+    Patient: Yes, a text reminder would be great, thank you.                                                                                            
+    AI Assistant: A text reminder will be sent to your phone ending in 0350. If you have any other questions or need to make changes, just let me know. 
+    Patient: Actually, could you tell me a bit more about what to expect during the first visit?                                                        
+    AI Assistant: During your first visit, Dr. Bricker will review your symptoms, medical history, and any prior imaging or treatment. Together you'll discuss next steps, which may include tests, therapy, or a procedure plan to help you recover. If you have any questions or concerns, feel free to bring them up during your appointment. At your first visit, Dr. Bricker will talk with you about your symptoms, medical history, and any past treatments. You'll work together to plan next steps, which could include tests, therapy, or a procedure plan. It's a chance to get a clear path toward recovery.                                                                                                                                                
+    Patient: Sounds good, I appreciate the information. Is there anything specific I should bring with me, besides the ID and insurance card?           
+    AI Assistant: Just your government-issued photo ID and insurance card, no copies, please. That's all you need to bring for your first visit. If you have any recent medical records or imaging, you can bring those, too, but they aren't required.                                                     
+    Patient: Alright, thank you for letting me know. I'll make sure to bring those along with me. Is there anything else I need to do before the appointment?                                                                                                                                               
+    AI Assistant: There's nothing else you need to do before your appointment. Just arrive a few minutes early with your ID and insurance card. If you have questions before your visit, feel free to call.                                                                                                 
+    Patient: Great, I think that covers everything for now. Thanks for all your help!                                                                                                                                                                                                                       
+    AI Assistant: Your rule set, your appointment is confirmed, and you'll get a text reminder. Have a great day.
+
+
+2.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: An existing patient needs to reschedule an upcoming dental cleaning from this Friday to next Friday.                                                                                                                                                                              
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hi, I need to reschedule my dental cleaning. It's for this Friday, and I'd like to move it to the following Friday.                    
+    AI Assistant: part of pretty good AI. Am I speaking with John?                                                                                      
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: Got it, John. Can you please provide your date of birth?                                                                              
+    Patient: It's March 22, 1984.                                                                                                                       
+    AI Assistant: Go ahead, John. The birthday doesn't match our records, but for demo purposes, I'll accept it. How may I help you today?              
+    Patient: I need to reschedule my dental cleaning appointment from this Friday to next Friday. Can you help me with that?                            
+    AI Assistant: Got it. Let me check your upcoming appointments and find options for next Friday. One moment. I see you have a new patient consultation scheduled for Thursday, March 5th at 9 a.m. with Dr. Bricker at Nashville, 220 Athens Way. Is this the appointment you want to move to next Friday? Also, just to confirm, are you looking to reschedule an orthopedic consultation or is this for a dental cleaning at a different office?           
+    Patient: No, it's not the new patient consultation. It's my dental cleaning appointment that I need to move to next Friday. It's not an orthopedic consultation; it's definitely for a dental cleaning.                                                                                                 
+    AI Assistant: Understood. I only see an orthopedic new patient consultation on your schedule here. I don't have access to dental appointments. Would you like help with your orthopedic appointment? Or do you want to return to the main menu for other options?                                       
+    Patient: Oh, I see. It seems there might have been some confusion. I'm calling specifically about a dental cleaning appointment. Could you possibly redirect me to the dental department, or should I contact them directly to reschedule?                                                              
+    AI Assistant: you'll need to contact the dental department directly to reschedule your cleaning. I only have access to orthopedic appointments here. If you need help with anything orthopedic, let me know.                                                                                            
+    Patient: Got it, thank you for your help. Could you please provide me with the contact information for the dental department so I can reach out to them directly?                                                                                                                                       
+    AI Assistant: I don't have contact information for the dental department. Pivot Point Orthopedics only handles orthopedic care. You'll need to reach out to your dental office directly. If you need anything orthopedic, I'm here to help.                                                             
+    Patient: Alright, I'll look up their number and give them a call. Thanks for your assistance!                                                                                                                                                                                                           
+    AI Assistant: got it. If you ever need help with orthopedic care, just let me know. Have a good day.
+
+    3.
+        You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient needs a standard refill for their blood pressure medication, Lisinopril.                                            
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hello, I need to request a refill for my blood pressure medication, Lisinopril.                                                        
+    AI Assistant: Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI. Am I speaking with John?                                          
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: it, John. Can you please provide your data first?                                                                                     
+    Patient: Sure, my date of birth is May 4th, 1978.                                                                                                   
+    AI Assistant: Got it, John. The birthday doesn't match our records, but for demo purposes, I'll accept it. How can it help you tonight?             
+    Patient: I just need a refill on my Lisinopril prescription, please.                                                                                
+    AI Assistant: Got it. What dosage of lisinopril do you take and how often do you take it?                                                           
+    Patient: I take 10 mg once daily.                                                                                                                   
+    AI Assistant: Got it. When did you last have your Lysinopro refilled?                                                                               
+    Patient: It was about a month ago.                                                                                                                  
+    AI Assistant: Which pharmacy do you use, and can you confirm the location?                                                                          
+    Patient: I use CVS Pharmacy, and it's the one located on Main Street in Springfield.                                                                
+    AI Assistant: How many days of Lysinopril do you have left? How many days of your medication do you have left?                                      
+    Patient: I have about three days' worth of medication left.                                                                                         
+    AI Assistant: Let me try sending your refill request again. One moment. I'm having trouble processing your refill request right now. I'll connect you to our clinic support team so they can help you directly. Please stay on the line. Connecting you to a representative. Please leave. Hello. You've reached the Pretty Good AI test line. Goodbye.                                                                                                     
+    Patient: Wait, can you please make sure my refill request is taken care of before disconnecting?                                                                                                                                                                                                        
+    AI Assistant: Let me try sending your refill request again. One moment. I'm having trouble processing your refill request right now. I'll connect you to our clinic support team so they can help you directly. Please stay on the line. Connecting you to a representative. Please leave. Hello. You've reached the Pretty Good AI test line. Goodbye.  
+
+4.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient is asking for a refill of a pain medication (Oxycodone) ahead of schedule, which should be denied or flagged.                                                                                                                                                           
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hi, I know it's a bit early, but I really need a refill on my Oxycodone prescription.                                                  
+    AI Assistant: calling Pivot Point Orthopedics, part of Pretty Good AI. Am I speaking with John?                                                     
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: Got it. John, can you please provide your date of birth?                                                                              
+    Patient: It's July 29, 1985.                                                                                                                        
+    AI Assistant: The birthday doesn't match our records, but for demo purposes, I'll accept it. How may I help you today? The birthday doesn't match our records, but for demo purposes, I'll accept it. How can I help you today?                                                                         
+    Patient: Oh, sorry about the mix-up with the birthday. Like I mentioned, I was hoping to get an early refill on my Oxycodone prescription. I've been having a really hard time with my pain lately.                                                                                                     
+    AI Assistant: Let me hook with your Oxycodone refill request. What dosage do you take and how often do you take it?                                 
+    Patient: I take 10 mg twice a day.                                                                                                                  
+    AI Assistant: When did you last have your Oxycodone refilled?                                                                                       
+    Patient: It was refilled three weeks ago.                                                                                                           
+    AI Assistant: Which pharmacy do you use? Please confirm the location.                                                                               
+    Patient: I use the CVS Pharmacy on Main Street in Springfield.                                                                                      
+    AI Assistant: How many days of medication do you have left?                                                                                         
+    Patient: I'm actually out. That's why I'm trying to get the refill a bit early.                                                                     
+    AI Assistant: Understood. Let me send your refill request to our medical team. I'm having trouble finding your medication details in our system. I'll document your request and let our clinic support team know. They will get back to you as soon as they can. Your request has been sent to our clinical team for urgent review. They will look into your early refill for Oxycodone and follow up as soon as possible. Is there anything else I can help you with today?                                                                                                                                    
+    Patient: No, that's everything for now. Thank you for your help.                                                                                    
+    AI Assistant: Got it. Take care, Dawn. If you need anything else, just call back.                                                                   
+    Patient: It's John, but thank you. Goodbye.                                                                                                                                                                                                                                                             
+    AI Assistant: Goodbye, Dawn. Have a good day. 
+
+5.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient is calling to check on the results of a recent blood test.                                                          
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hello, I had a blood test last week and I'm calling to see if my results are in.                                                       
+    AI Assistant: Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI. Am I speaking with John?                                          
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: Got it, John. Can you please tell me your data first?                                                                                 
+    Patient: Sure, my date of birth is June 15, 1987.                                                                                                   
+    AI Assistant: Got it, John. The birthday doesn't match our records, but for demo purposes, I'll accept it. How can I help you today? Thanks, John. The birthday doesn't match our records, but for demo purposes, I'll accept it. How can I help you today?                                             
+    Patient: Oh, I see. Well, I called to check on the results of my blood test. Can you help me with that?                                             
+    AI Assistant: Got it. I'll document your request and let our clinic support team know you want to check your blood test results. They'll get back to you as soon as they can. I've created a case for you to check on your blood test results. The clinic staff will review your request and follow up with you as soon as possible. Is there anything else I can help you with today?                                                                      
+    Patient: No, that's all for now. Thank you for your help.                                                                                                                                                                                                                                               
+    AI Assistant: Got it. Have a great day, John. Goodbye.    
+
+6.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient calls with vague symptoms (feeling tired and has a headache) and asks if they should come in.                                                                                                                                                                           
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hi, I've been feeling really tired and have had a headache for a couple of days. I'm not sure if I should make an appointment.         
+    AI Assistant: part of Pretty Good AI. Am I speaking with John?                                                                                      
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: cottage on. Can you please provide your date of birth?                                                                                
+    Patient: April 15, 1989.                                                                                                                            
+    AI Assistant: The birthday doesn't match our records, but for demo purposes, I'll accept it. How may I help you today?                              
+    Patient: I've been feeling unusually tired lately and have a persistent headache. I'm wondering if it's something I should be concerned about and if I need to come in for a check-up.                                                                                                                  
+    AI Assistant: Got it John. Let me document your symptoms and have our clinic support team review your concerns. They'll get back to you as soon as possible. I've created a case for you so the clinic staff can review your symptoms. Someone from the team will follow up with you as soon as possible to advise on next steps. If your symptoms get worse or you experience anything severe, call 9-1-1 right away.                                      
+    Patient: Okay, thank you for the advice. Should I be doing anything in the meantime to help with the symptoms?                                      
+    AI Assistant: For now, try to rest, stay hydrated, and avoid over-exertion. If your headache or fatigue gets much worse, or if you notice new symptoms like fever, vision changes, or confusion, call 911 or seek care right away. The clinic team will reach out soon with more guidance.              
+    Patient: Got it, I'll make sure to follow those instructions. Thanks for your help, and I'll wait to hear back from the clinic team.                
+    AI Assistant: Understood, John. The clinic team will contact you soon. Take care and let us know if anything changes.                               
+    Patient: Will do. Have a good day.                                                                                                                                                                                                                                                                      
+    AI Assistant: Me too, John. Goodbye.  
+
+7.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient has a question about a recent bill, believing they were overcharged for a visit.                                                                                                                                                                                        
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hello, I'm calling about a bill I received. I think I might have been overcharged for my last visit.                                   
+    AI Assistant: Pivot Point Orthopedics, part of Pretty Good AI. Am I speaking with John?                                                             
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: Got it, John. Can you please provide your date of birth?                                                                              
+    Patient: It's May 15, 1986.                                                                                                                         
+    AI Assistant: The birthday doesn't match our records, but for demo purposes, I'll accept it. How can I help you today?                              
+    Patient: I received a bill for my last visit, and the charges seem higher than what I was expecting. Can you help me understand why that might be?  
+    AI Assistant: John, I've created a case for your billing question. The clinic staff will review your concern and get back to you as soon as possible to help explain the charges.                                                                                                                       
+    Patient: Could you give me an estimate of how long it will take for someone to get back to me?                                                      
+    AI Assistant: You should hear back from the clinic staff as soon as possible, usually within one to two business days.                              
+    Patient: Okay, thank you for your help. Can I get a confirmation number for my case or something to reference when they contact me?                 
+    AI Assistant: Sure. Your case has been created and the reference number is 288086. Please mention this number when the clinic contacts you.         
+    Patient: Great, I've got that written down. Is there an email confirmation or something I can expect as well?                                       
+    AI Assistant: There isn't an automatic email confirmation, but the clinic staff will reach out directly using your contact information. If you need anything else, just let me know.                                                                                                                    
+    Patient: No, that's everything for now. Thank you for your help.                                                                                    
+    AI Assistant: Have a great day, John.                                                                                                               
+    Patient: You too, goodbye.                                                                                                                                                                                                                                                                              
+    AI Assistant: Have a great day, John.
+
+8.
+
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient asks to speak directly with a specific doctor who is currently unavailable.                                         
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hello, I'd like to speak with Dr. Anderson, please.                                                                                    
+    AI Assistant: Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI. Am I speaking with John?                                          
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: Got it, John. Can you please tell me your date of birth?                                                                              
+    Patient: May 14th, 1987.                                                                                                                            
+    AI Assistant: The birth date doesn't match our records, but for demo purposes I'll accept it. How may I help you today?                             
+    Patient: I really need to speak with Dr. Anderson about my recent surgery. Is he available?                                                         
+    AI Assistant: Lynn Anderson is actually a physical therapist here, not a doctor. Would you like to schedule a physical therapy session with Lynn, or do you want to speak with one of our doctors about your surgery?                                                                                   
+    Patient: Oh, my mistake. I meant I need to speak with the doctor who performed my surgery. Can you help me get in touch with them?                  
+    AI Assistant: Got it. Let me check who performed your surgery and see how I can help you get in touch. One moment while I look up your recent appointments. I don't see any past appointments or surgeries on file for you. Are you sure your surgery was with Pivot Point Orthopedics? If you need to discuss a new concern or schedule a follow-up, I can help set that up. What would you like to do next?                                               
+    Patient: Yes, my surgery was definitely with Pivot Point Orthopedics. It's possible it was under a different name; I sometimes use my middle name, Michael, for paperwork. Could you check that, please?                                                                                                
+    AI Assistant: Thanks for letting me know. I'll need to update your information to help find your records. Can you confirm the full name and date of birth you might have used for your surgery?                                                                                                         
+    Patient: Michael John Smith, May 14th, 1987.                                                                                                        
+    AI Assistant: birthday doesn't match our records but for demo purposes I'll accept it. Let me check your appointment history to see which doctor performed your surgery. I still don't see any past appointments or surgeries under Michael John Smith with your date of birth. Would you like to schedule a follow-up or leave a message for a doctor? Let me know how you'd like to proceed.                                                              
+    Patient: Could I possibly leave a message for the doctor then? I'm a bit concerned about some symptoms I've been experiencing since the surgery.    
+    AI Assistant: I've created a case for you so the clinic staff can review your concerns and follow-up. Your message about symptoms after surgery will be sent to the medical team and someone will get back to you as soon as possible. If your symptoms get worse or you feel it's urgent, please call 911 or go to the nearest emergency room.                                                                                                             
+    Patient: Thank you, I appreciate the help. Could you tell me how long it might take for someone to get back to me?                                  
+    AI Assistant: The clinic staff will review your case and get back to you as soon as possible, usually within one business day. If your symptoms get worse or feel urgent, please call 9-1-1.                                                                                                            
+    Patient: Okay, I'll keep an eye on my symptoms and wait for the call. Thanks for your assistance.                                                                                                                                                                                                       
+    AI Assistant: Got it. Take care, and if anything feels urgent, call 9-1-1. Have a good day.      
+
+
+9.    
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A patient is having trouble logging into the online patient portal and needs their password reset.                                                                                                                                                                                
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hi, I can't seem to log into the patient portal. I think I need to reset my password.                                                  
+    AI Assistant: pivot point orthopedics part of pretty good AI. Am I speaking with John?                                                              
+    Patient: Yes, this is John.                                                                                                                         
+    AI Assistant: Got it. John, can you please provide your date of birth?                                                                              
+    Patient: It's March 5th, 1987.                                                                                                                      
+    AI Assistant: The birthday doesn't match our records, but for demo purposes, I'll accept it. What can I help you with today?                        
+    Patient: I'm having trouble logging into the patient portal. I believe I need to reset my password.                                                 
+    AI Assistant: I'll let our clinic support team know you need help resetting your patient portal password. They'll get back to you as soon as they can. One moment while I document your request. I've created a case for you so the clinic staff can help with resetting your patient portal password. They will review your request and get back to you as soon as possible. Is there anything else I can help you with today?                             
+    Patient: No, that's all for now. Thank you for your help.                                                                                                                                                                                                                                               
+    AI Assistant: All right. Have a great day, John. Goodbye.      
+
+10.
+    You are an automated voice bot acting as a patient to test an AI medical assistant.                                                             
+    Your goal is to realistically play the part of the patient based on the scenario below.                                                         
+    Keep your responses concise and natural, as if you were speaking on the phone.                                                                  
+    Do not reveal that you are a bot.                                                                                                               
+                                                                                                                                                    
+    Current Scenario: A caller asks a completely irrelevant question (e.g., 'What's the weather like today?') to test the bot's ability to handle off-topic conversation.                                                                                                                               
+                                                                                                                                                    
+    Current conversation:                                                                                                                           
+    Patient: Hi, I was just wondering... what's the weather like over there today?                                                                  
+    AI Assistant: Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI. Am I thinking with John?                                          
+    Patient: Oh, sorry about that! I meant to ask about scheduling an appointment for a knee consultation.                                              
+    AI Assistant: No problem. I can help with that. May I have your full name and date of birth to get started?                                         
+    Patient: John Smith, April 3rd, 1985.                                                                                                               
+    AI Assistant: Let me confirm your name is John Smith and your date of birth is April 3rd, 1985. Is that correct? If so, could you please spell your last name for me? Just to confirm, your name is John Smith and your date of birth is April 3rd, 1985. Is that correct? If so, could you please spell your last name for me?                                                                                                                             
+    Patient: Yes, that's correct. It's Smith, S-M-I-T-H.                                                                                                
+    AI Assistant: Would you like to use your phone number to look up your record? If so, please provide the number you have on file with us. If you're not sure, let me know and I'll confirm your name and date of birth again.                                                                            
+    Patient: Sure, my phone number is 555-123-4567.                                                                                                     
+    AI Assistant: Let me confirm, I have your phone number as 555-123-4567 and your date of birth as April 3rd, 1985, is that correct?                  
+    Patient: Yes, that's correct.                                                                                                                       
+    AI Assistant: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Would you like me to connect you to our patient support team?                                                                                                                         
+    Patient: Yes, please. That would be great. Thank you.                                                                                               
+    AI Assistant: Live transfer is not available right now since this is a demo clinic. In a real situation, I would have connected you to a human for support. You can continue with me if you'd like. How else can I help you today? Live transfer isn't available right now since this is a demo clinic. In a real clinic, I would have connected you to a human for support. You can keep talking with me if you'd like. How else can I help? Are you still there?                                                                                                                                              
+    Patient: Yes, I'm here. Can you tell me more about what to expect during the knee consultation?                                                                                                                                                                                                         
+    AI Assistant: MBC 뉴스 김재경입니다.
